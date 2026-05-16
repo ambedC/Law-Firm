@@ -6,7 +6,7 @@ interface PracticeCardProps {
 
 export default function PracticeCard({ title, desc, icon }: PracticeCardProps) {
   return (
-    <div className="glass-card group hover:bg-accent/5">
+    <div className="glass-card group hover:bg-accent/5 h-full">
       <div className="w-10 h-10 mb-6 text-accent/40 group-hover:text-accent transition-colors duration-300">
         {icon}
       </div>

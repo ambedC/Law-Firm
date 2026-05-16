@@ -1,4 +1,5 @@
 import PracticeCard from "./PracticeCard";
+import Reveal from "./Reveal";
 
 const areas = [
   { 
@@ -60,15 +61,19 @@ const areas = [
 export default function PracticeAreas() {
   return (
     <section id="practice" className="py-32 max-w-7xl mx-auto px-8 bg-black">
-      <div className="mb-20">
-        <span className="text-accent text-sm font-bold uppercase tracking-[4px] mb-4 block">Our Expertise</span>
-        <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">Specialized Legal Services</h2>
-        <div className="w-16 h-0.5 bg-accent"></div>
-      </div>
+      <Reveal>
+        <div className="mb-20">
+          <span className="text-accent text-sm font-bold uppercase tracking-[4px] mb-4 block">Our Expertise</span>
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">Specialized Legal Services</h2>
+          <div className="w-16 h-0.5 bg-accent"></div>
+        </div>
+      </Reveal>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {areas.map((area, i) => (
-          <PracticeCard key={i} title={area.title} desc={area.desc} icon={area.icon} />
+          <Reveal key={i} delay={i * 100} direction="up" className="h-full">
+            <PracticeCard title={area.title} desc={area.desc} icon={area.icon} />
+          </Reveal>
         ))}
       </div>
     </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Reveal from "./Reveal";
 
 const testimonials = [
   {
@@ -93,104 +94,119 @@ export default function Credibility() {
 
         {/* Lawyers Section */}
         <div className="mb-32">
-          <div className="mb-12">
-            <span className="text-accent text-sm font-bold uppercase tracking-[4px] mb-4 block">The Partners</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tighter">Our Legal Experts</h2>
-          </div>
+          <Reveal>
+            <div className="mb-12">
+              <span className="text-accent text-sm font-bold uppercase tracking-[4px] mb-4 block">The Partners</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tighter">Our Legal Experts</h2>
+            </div>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {lawyers.map((lawyer, i) => (
-              <div key={i} className="glass-card group flex flex-col items-center text-center !p-10 hover:border-accent transition-all duration-500">
-                <div className="w-24 h-24 rounded-full border-2 border-accent/20 mb-6 flex items-center justify-center bg-white/5 overflow-hidden">
-                  <svg className="w-12 h-12 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
+              <Reveal key={i} delay={i * 100} direction="up" className="h-full">
+                <div className="glass-card group flex flex-col items-center text-center !p-10 hover:border-accent transition-all duration-500 h-full">
+                  <div className="w-24 h-24 rounded-full border-2 border-accent/20 mb-6 flex items-center justify-center bg-white/5 overflow-hidden">
+                    <svg className="w-12 h-12 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">{lawyer.name}</h3>
+                  <p className="text-accent text-[10px] uppercase font-bold tracking-widest mb-4">{lawyer.role}</p>
+                  <div className="w-8 h-px bg-white/10 mb-6"></div>
+                  <div className="space-y-4 mb-8">
+                    <p className="text-white text-sm font-sans font-semibold tracking-tight">{lawyer.specialty}</p>
+                    <p className="text-white/40 text-[10px] uppercase tracking-widest">{lawyer.experience}</p>
+                  </div>
+                  <p className="text-white/60 text-sm leading-relaxed font-sans">{lawyer.bio}</p>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">{lawyer.name}</h3>
-                <p className="text-accent text-[10px] uppercase font-bold tracking-widest mb-4">{lawyer.role}</p>
-                <div className="w-8 h-px bg-white/10 mb-6"></div>
-                <div className="space-y-4 mb-8">
-                  <p className="text-white text-sm font-sans font-semibold tracking-tight">{lawyer.specialty}</p>
-                  <p className="text-white/40 text-[10px] uppercase tracking-widest">{lawyer.experience}</p>
-                </div>
-                <p className="text-white/60 text-sm leading-relaxed font-sans">{lawyer.bio}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Representative Matters Section */}
         <div className="mb-32">
-          <div className="mb-12">
-            <span className="text-accent text-sm font-bold uppercase tracking-[4px] mb-4 block">Proven Track Record</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tighter">Representative Matters</h2>
-          </div>
+          <Reveal>
+            <div className="mb-12">
+              <span className="text-accent text-sm font-bold uppercase tracking-[4px] mb-4 block">Proven Track Record</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tighter">Representative Matters</h2>
+            </div>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {matters.map((matter, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-[30px] hover:border-accent/50 transition-all duration-500 group">
-                <div className="flex justify-between items-start mb-6">
-                  <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">{matter.result}</span>
+              <Reveal key={i} delay={i * 100} direction="up" className="h-full">
+                <div className="bg-white/5 border border-white/10 p-8 rounded-[30px] hover:border-accent/50 transition-all duration-500 group h-full">
+                  <div className="flex justify-between items-start mb-6">
+                    <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">{matter.result}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-accent transition-colors">{matter.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{matter.desc}</p>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-accent transition-colors">{matter.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{matter.desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Testimonials Section */}
         <div className="mb-32">
-          <div className="mb-12">
-            <span className="text-accent text-sm font-bold uppercase tracking-[4px] mb-4 block">Client Perspectives</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tighter">Trusted by Leaders</h2>
-          </div>
+          <Reveal>
+            <div className="mb-12">
+              <span className="text-accent text-sm font-bold uppercase tracking-[4px] mb-4 block">Client Perspectives</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tighter">Trusted by Leaders</h2>
+            </div>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((test, i) => (
-              <div key={i} className="glass-card p-8 rounded-[30px] flex flex-col justify-between">
-                <div>
-                  <svg className="w-8 h-8 text-accent/40 mb-6" fill="currentColor" viewBox="0 0 32 32">
-                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/>
-                  </svg>
-                  <p className="text-white/80 italic leading-relaxed mb-8">"{test.quote}"</p>
+              <Reveal key={i} delay={i * 100} direction="up" className="h-full">
+                <div className="glass-card p-8 rounded-[30px] flex flex-col justify-between h-full">
+                  <div>
+                    <svg className="w-8 h-8 text-accent/40 mb-6" fill="currentColor" viewBox="0 0 32 32">
+                      <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/>
+                    </svg>
+                    <p className="text-white/80 italic leading-relaxed mb-8">"{test.quote}"</p>
+                  </div>
+                  <div>
+                    <p className="text-white font-bold">{test.author}</p>
+                    <p className="text-white/40 text-[10px] uppercase tracking-widest mt-1">{test.role}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-white font-bold">{test.author}</p>
-                  <p className="text-white/40 text-[10px] uppercase tracking-widest mt-1">{test.role}</p>
-                </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* FAQs */}
         <div className="max-w-3xl mx-auto pt-16 border-t border-white/10">
-          <div className="text-center mb-12">
-            <span className="text-accent text-sm font-bold uppercase tracking-[4px] mb-4 block">Clarity & Transparency</span>
-            <h2 className="text-4xl font-bold text-white uppercase tracking-tighter">Frequently Asked Questions</h2>
-          </div>
+          <Reveal>
+            <div className="text-center mb-12">
+              <span className="text-accent text-sm font-bold uppercase tracking-[4px] mb-4 block">Clarity & Transparency</span>
+              <h2 className="text-4xl font-bold text-white uppercase tracking-tighter">Frequently Asked Questions</h2>
+            </div>
+          </Reveal>
           <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
-              <div 
-                key={i} 
-                className={`border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'bg-white/5' : 'bg-transparent hover:bg-white/5'}`}
-              >
-                <button 
-                  className="w-full text-left px-6 py-6 flex justify-between items-center focus:outline-none"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                >
-                  <span className="font-semibold text-white md:text-lg pr-8">{faq.q}</span>
-                  <svg 
-                    className={`w-5 h-5 text-accent transform transition-transform duration-300 flex-shrink-0 ${openFaq === i ? 'rotate-180' : ''}`} 
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
+              <Reveal key={i} delay={i * 100} direction="up">
                 <div 
-                  className={`px-6 overflow-hidden transition-all duration-500 ease-in-out ${openFaq === i ? 'max-h-40 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
+                  className={`border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'bg-white/5' : 'bg-transparent hover:bg-white/5'}`}
                 >
-                  <p className="text-white/60 leading-relaxed text-sm md:text-base">{faq.a}</p>
+                  <button 
+                    className="w-full text-left px-6 py-6 flex justify-between items-center focus:outline-none"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-white md:text-lg pr-8">{faq.q}</span>
+                    <svg 
+                      className={`w-5 h-5 text-accent transform transition-transform duration-300 flex-shrink-0 ${openFaq === i ? 'rotate-180' : ''}`} 
+                      fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div 
+                    className={`px-6 overflow-hidden transition-all duration-500 ease-in-out ${openFaq === i ? 'max-h-40 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
+                  >
+                    <p className="text-white/60 leading-relaxed text-sm md:text-base">{faq.a}</p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
