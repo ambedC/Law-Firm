@@ -19,6 +19,9 @@ export const metadata: Metadata = {
 
 import SmoothScroll from "@/components/SmoothScroll";
 
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,9 +29,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}>
-      <body>
+      <body className="bg-black text-white antialiased">
         <SmoothScroll>
+          <Header />
           {children}
+          <Footer />
         </SmoothScroll>
       </body>
     </html>

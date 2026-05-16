@@ -16,10 +16,10 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#practice" },
-    { label: "Lawyers", href: "#credibility" },
-    { label: "Contacts", href: "#contact" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Lawyers", href: "/lawyers" },
+    { label: "Contacts", href: "/contact" },
   ];
 
   return (
@@ -64,7 +64,7 @@ export default function Header() {
 
           {/* Consultation (Right side) */}
           <div className="flex items-center">
-            <Link href="#contact" className="btn-primary !px-5 !py-2 !text-xs md:!text-sm md:!px-6">
+            <Link href="/contact" className="btn-primary !px-5 !py-2 !text-xs md:!text-sm md:!px-6">
               Consultation
             </Link>
           </div>
@@ -86,7 +86,7 @@ export default function Header() {
               </Link>
             ))}
             <Link 
-              href="#contact" 
+              href="/contact" 
               className="btn-primary !py-3 !text-center mt-4"
               onClick={() => setMobileMenuOpen(false)}
             >

@@ -60,23 +60,59 @@ const faqs = [
   }
 ];
 
+const lawyers = [
+  {
+    name: "Adv. Stas Nychyporchuk",
+    role: "Founding Partner",
+    specialty: "Maritime & Corporate Law",
+    experience: "15+ Years Experience",
+    bio: "Specializing in complex international maritime disputes and corporate restructuring. Leading our Kochi chambers with a focus on global NRI legal support."
+  },
+  {
+    name: "Adv. Meera Nair",
+    role: "Senior Associate",
+    specialty: "High Court Litigation",
+    experience: "12+ Years Experience",
+    bio: "Expert in writ petitions and civil appeals at the High Court of Kerala. Known for strategic litigation in complex property and family law matters."
+  },
+  {
+    name: "Adv. Rahul Menon",
+    role: "Partner",
+    specialty: "Criminal Defense & Civil Law",
+    experience: "18+ Years Experience",
+    bio: "A veteran in the Kerala judicial system, specializing in high-stakes criminal defense and constitutional law matters."
+  }
+];
+
 export default function Credibility() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <section id="credibility" className="bg-[#050505] py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        
-        {/* Awards Banner */}
-        <div className="mb-32 text-center border-y border-white/10 py-12">
-          <span className="text-accent text-sm font-bold uppercase tracking-[4px] mb-8 block text-center">Recognized Excellence</span>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-            {awards.map((award, i) => (
-              <div key={i} className="flex items-center gap-3 text-white/70">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c5a059" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 15l-3.5 2 1-4.5L6 9l4.5-.5L12 4l1.5 4.5 4.5.5-3.5 3.5 1 4.5-3.5-2z"/>
-                </svg>
-                <span className="font-semibold text-sm md:text-base">{award}</span>
+      <div className="max-w-7xl mx-auto px-6 md:px-12"> 
+
+        {/* Lawyers Section */}
+        <div className="mb-32">
+          <div className="mb-12">
+            <span className="text-accent text-sm font-bold uppercase tracking-[4px] mb-4 block">The Partners</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tighter">Our Legal Experts</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {lawyers.map((lawyer, i) => (
+              <div key={i} className="glass-card group flex flex-col items-center text-center !p-10 hover:border-accent transition-all duration-500">
+                <div className="w-24 h-24 rounded-full border-2 border-accent/20 mb-6 flex items-center justify-center bg-white/5 overflow-hidden">
+                  <svg className="w-12 h-12 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">{lawyer.name}</h3>
+                <p className="text-accent text-[10px] uppercase font-bold tracking-widest mb-4">{lawyer.role}</p>
+                <div className="w-8 h-px bg-white/10 mb-6"></div>
+                <div className="space-y-4 mb-8">
+                  <p className="text-white text-sm font-sans font-semibold tracking-tight">{lawyer.specialty}</p>
+                  <p className="text-white/40 text-[10px] uppercase tracking-widest">{lawyer.experience}</p>
+                </div>
+                <p className="text-white/60 text-sm leading-relaxed font-sans">{lawyer.bio}</p>
               </div>
             ))}
           </div>
