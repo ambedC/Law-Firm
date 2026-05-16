@@ -65,7 +65,7 @@ export default function Header() {
           {/* Consultation (Right side) */}
           <div className="flex items-center">
             <Link href="/contact" className="btn-primary !px-5 !py-2 !text-xs md:!text-sm md:!px-6">
-              Consultation
+              Contact Us
             </Link>
           </div>
         </div>
